@@ -1,0 +1,8 @@
+.buttonClear {
+  border: 2px solid transparent;
+}
+
+.buttonClear:hover {
+  border: 2px solid #a1a1a1;
+  border-radius: 4px;
+}

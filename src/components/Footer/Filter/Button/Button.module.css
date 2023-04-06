@@ -1,0 +1,14 @@
+.button {
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: 2px solid #a1a1a1;
+  border-radius: 4px;
+}
+
+.button_active {
+  border: 2px solid #a1a1a1;
+  border-radius: 4px;
+}
