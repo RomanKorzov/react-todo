@@ -1,14 +1,14 @@
 import styles from "./Footer.module.css";
-import Counter from "./Counter/Counter";
-import Filter from "./Filter/Filter";
-import ClearButton from "./ClearButton/ClearButton";
+import { Counter } from "./Counter/Counter";
+import { Filter } from "./Filter/Filter";
+import { ClearButton } from "./ClearButton/ClearButton";
 
-export default function Footer() {
+export function Footer({ count, filter, onClearTodos, onFilterTodos }) {
   return (
     <div className={styles.footer}>
-      <Counter count={0} />
-      <Filter />
-      <ClearButton text="Clear All Todo" />
+      <Counter count={count} />
+      <Filter filter={filter} onFilterTodos={onFilterTodos} />
+      <ClearButton text="Clear All Todo" onClearTodos={onClearTodos} />
     </div>
   );
 }

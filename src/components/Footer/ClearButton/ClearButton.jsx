@@ -1,5 +1,9 @@
 import styles from "./ClearButton.module.css";
 
-export default function ClearButton({ text }) {
-  return <button className={styles.button}>{text}</button>;
+export function ClearButton({ text, onClearTodos }) {
+  return (
+    <button className={styles.button} onClick={onClearTodos}>
+      {text}
+    </button>
+  );
 }

@@ -1,11 +1,19 @@
+import { useState } from "react";
 import styles from "./Form.module.css";
 
-export default function Form({ onSubmit }) {
+export function Form({ onSubmit }) {
+  const [text, setText] = useState("");
+
+  function clearText() {
+    setText("");
+  }
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onSubmit(e);
+        onSubmit(text);
+        clearText();
       }}
     >
       <input
@@ -13,6 +21,8 @@ export default function Form({ onSubmit }) {
         name="add-todo"
         type="text"
         placeholder="What needs to be done?"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
       />
     </form>
   );

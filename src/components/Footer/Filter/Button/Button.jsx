@@ -1,8 +1,20 @@
 import styles from "./Button.module.css";
 
-export default function Button({ text, id }) {
+export function Button({ text, id, filter, onFilterTodos, isActive }) {
+  function styleButton() {
+    if (isActive) {
+      return `${styles.button} ${styles.active}`;
+    } else {
+      return `${styles.button}`;
+    }
+  }
+
   return (
-    <button className={`${styles.button} ${styles.button_active}`} id={id}>
+    <button
+      className={styleButton()}
+      id={id}
+      onClick={() => onFilterTodos(filter)}
+    >
       {text}
     </button>
   );

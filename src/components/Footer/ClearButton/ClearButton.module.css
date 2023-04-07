@@ -1,8 +1,17 @@
-.buttonClear {
+.button {
+  background-color: #fff;
   border: 2px solid transparent;
+  cursor: pointer;
+  order: 2;
 }
 
-.buttonClear:hover {
+.button:hover {
   border: 2px solid #a1a1a1;
   border-radius: 4px;
+}
+
+@media only screen and (min-width: 640px) {
+  .button {
+    order: 3;
+  }
 }

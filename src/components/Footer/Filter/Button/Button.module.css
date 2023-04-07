@@ -1,5 +1,6 @@
 .button {
-  border: 2px solid black;
+  background-color: #fff;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 
@@ -8,7 +9,7 @@
   border-radius: 4px;
 }
 
-.button_active {
+.active {
   border: 2px solid #a1a1a1;
   border-radius: 4px;
 }

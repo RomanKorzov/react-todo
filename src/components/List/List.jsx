@@ -1,11 +1,16 @@
 import styles from "./List.module.css";
-import ListItem from "./ListItem/ListItem";
+import { ListItem } from "./ListItem/ListItem";
 
-export default function List({ todos }) {
+export function List({ todos, onDeleteTodo, onToggleIsDone }) {
   return (
     <ul className={styles.list}>
       {todos.map((todo) => (
-        <ListItem key={todo.id} todo={todo}></ListItem>
+        <ListItem
+          key={todo.id}
+          todo={todo}
+          onDeleteTodo={onDeleteTodo}
+          onToggleIsDone={onToggleIsDone}
+        />
       ))}
     </ul>
   );
