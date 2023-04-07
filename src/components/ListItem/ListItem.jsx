@@ -3,15 +3,19 @@ import { Text } from "@consta/uikit/Text";
 import { Button } from "@consta/uikit/Button";
 import { IconTrash } from "@consta/uikit/IconTrash";
 import { Checkbox } from "@consta/uikit/Checkbox";
+import { useContext } from "react";
+import { TodoContext } from "../../context";
 
-export const ListItem = ({ todo, onDeleteTodo, onToggleIsDone }) => {
+export const ListItem = ({ todo }) => {
+  const { deleteTodo, toggleIsDone } = useContext(TodoContext);
+
   return (
     <li className={`${styles.item}`}>
       <Checkbox
         view="primary"
         checked={todo.isDone}
         className={styles.checkbox}
-        onChange={() => onToggleIsDone(todo.id)}
+        onChange={() => toggleIsDone(todo.id)}
       />
       <Text className={styles.text}>{todo.text}</Text>
       <Button
@@ -20,7 +24,7 @@ export const ListItem = ({ todo, onDeleteTodo, onToggleIsDone }) => {
         iconLeft={IconTrash}
         className={styles.deleteButton}
         onlyIcon
-        onClick={(e) => onDeleteTodo(todo.id)}
+        onClick={() => deleteTodo(todo.id)}
       ></Button>
     </li>
   );

@@ -14,7 +14,8 @@
 }
 
 .deleteButton {
-  margin: auto;
+  margin: auto 0;
+  margin-left: auto;
 }
 
 .checkbox {

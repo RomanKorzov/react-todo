@@ -3,12 +3,12 @@ import { Counter } from "../Counter/Counter";
 import { Filter } from "../Filter/Filter";
 import { ClearButton } from "../ClearButton/ClearButton";
 
-export const Footer = ({ count, filter, onClearTodos, onFilterTodos }) => {
+export const Footer = () => {
   return (
     <div className={styles.footer}>
-      <Counter count={count} />
-      <Filter filter={filter} onFilterTodos={onFilterTodos} />
-      <ClearButton text="Clear All Todo" onClearTodos={onClearTodos} />
+      <Counter />
+      <Filter />
+      <ClearButton text="Clear All Todo" />
     </div>
   );
 };

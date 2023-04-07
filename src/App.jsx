@@ -1,3 +1,5 @@
+import React from "react";
+import { TodoContext } from "./context";
 import { useMemo, useState } from "react";
 import { Header } from "./components/Header/Header";
 import { Form } from "./components/Form/Form";
@@ -51,23 +53,25 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header text="todos" />
-      <div className="todo__wrapper">
-        <Form onSubmit={addTodo} />
-        <List
-          todos={filteredTodos}
-          onDeleteTodo={deleteTodo}
-          onToggleIsDone={toggleIsDone}
-        />
-        <Footer
-          count={countActiveTodos()}
-          filter={filter}
-          onClearTodos={clearTodos}
-          onFilterTodos={setFilter}
-        />
+    <TodoContext.Provider
+      value={{
+        filteredTodos,
+        filter,
+        deleteTodo,
+        toggleIsDone,
+        countActiveTodos,
+        setFilter,
+      }}
+    >
+      <div className="App">
+        <Header text="todos" />
+        <div className="todo__wrapper">
+          <Form onSubmit={addTodo} />
+          <List />
+          <Footer />
+        </div>
       </div>
-    </div>
+    </TodoContext.Provider>
   );
 }
 
