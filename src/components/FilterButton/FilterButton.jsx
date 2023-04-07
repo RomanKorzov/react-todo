@@ -1,21 +1,13 @@
 import styles from "./FilterButton.module.css";
+import { Button } from "@consta/uikit/Button";
 
-export const FilterButton = ({ text, id, filter, onFilterTodos, isActive }) => {
-  const styleButton = () => {
-    if (isActive) {
-      return `${styles.button} ${styles.active}`;
-    } else {
-      return `${styles.button}`;
-    }
-  };
-
+export const FilterButton = ({ label, filter, onFilterTodos, isActive }) => {
   return (
-    <button
-      className={styleButton()}
-      id={id}
+    <Button
+      label={label}
+      view="clear"
+      className={`${styles.button} ${isActive ? styles.active : ""}`}
       onClick={() => onFilterTodos(filter)}
-    >
-      {text}
-    </button>
+    />
   );
 };

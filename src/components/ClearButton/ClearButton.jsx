@@ -1,9 +1,12 @@
-import styles from "./ClearButton.module.css";
+import { Button } from "@consta/uikit/Button";
 
 export const ClearButton = ({ text, onClearTodos }) => {
   return (
-    <button className={styles.button} onClick={onClearTodos}>
-      {text}
-    </button>
+    <Button
+      label="Clear all todos"
+      view="clear"
+      text={text}
+      onClick={onClearTodos}
+    />
   );
 };

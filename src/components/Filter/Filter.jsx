@@ -5,22 +5,19 @@ export const Filter = ({ filter, onFilterTodos }) => {
   return (
     <div className={styles.filter}>
       <FilterButton
-        text="All"
-        id="filter-all"
+        label="All"
         filter="all"
         onFilterTodos={onFilterTodos}
         isActive={filter === "all"}
       />
       <FilterButton
-        text="Active"
-        id="filter-active"
+        label="Active"
         filter="active"
         onFilterTodos={onFilterTodos}
         isActive={filter === "active"}
       />
       <FilterButton
-        text="Completed"
-        id="filter-completed"
+        label="Completed"
         filter="completed"
         onFilterTodos={onFilterTodos}
         isActive={filter === "completed"}

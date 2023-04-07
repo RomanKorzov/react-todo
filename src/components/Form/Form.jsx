@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Form.module.css";
+import { TextField } from "@consta/uikit/TextField";
 
 export const Form = ({ onSubmit }) => {
   const [text, setText] = useState("");
@@ -16,13 +16,12 @@ export const Form = ({ onSubmit }) => {
         clearText();
       }}
     >
-      <input
-        className={styles.input}
-        name="add-todo"
+      <TextField
         type="text"
         placeholder="What needs to be done?"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={({ value }) => setText(value)}
+        width="full"
       />
     </form>
   );
