@@ -61,6 +61,7 @@ function App() {
         toggleIsDone,
         countActiveTodos,
         setFilter,
+        clearTodos,
       }}
     >
       <div className="App">
