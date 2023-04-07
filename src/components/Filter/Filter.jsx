@@ -1,24 +1,24 @@
 import styles from "./Filter.module.css";
-import { Button } from "./Button/Button";
+import { FilterButton } from "../FilterButton/FilterButton";
 
-export function Filter({ filter, onFilterTodos }) {
+export const Filter = ({ filter, onFilterTodos }) => {
   return (
     <div className={styles.filter}>
-      <Button
+      <FilterButton
         text="All"
         id="filter-all"
         filter="all"
         onFilterTodos={onFilterTodos}
         isActive={filter === "all"}
       />
-      <Button
+      <FilterButton
         text="Active"
         id="filter-active"
         filter="active"
         onFilterTodos={onFilterTodos}
         isActive={filter === "active"}
       />
-      <Button
+      <FilterButton
         text="Completed"
         id="filter-completed"
         filter="completed"
@@ -27,4 +27,4 @@ export function Filter({ filter, onFilterTodos }) {
       />
     </div>
   );
-}
+};

@@ -1,13 +1,13 @@
-import styles from "./Button.module.css";
+import styles from "./FilterButton.module.css";
 
-export function Button({ text, id, filter, onFilterTodos, isActive }) {
-  function styleButton() {
+export const FilterButton = ({ text, id, filter, onFilterTodos, isActive }) => {
+  const styleButton = () => {
     if (isActive) {
       return `${styles.button} ${styles.active}`;
     } else {
       return `${styles.button}`;
     }
-  }
+  };
 
   return (
     <button
@@ -18,4 +18,4 @@ export function Button({ text, id, filter, onFilterTodos, isActive }) {
       {text}
     </button>
   );
-}
+};

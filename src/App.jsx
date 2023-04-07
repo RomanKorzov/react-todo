@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Header } from "./components/Header/Header";
 import { Form } from "./components/Form/Form";
 import { List } from "./components/List/List";
@@ -9,47 +9,46 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
 
-  function addTodo(text) {
+  const addTodo = (text) => {
     if (text.trim()) {
       setTodos([...todos, { id: Date.now(), text: text, isDone: false }]);
     } else {
       alert("Input text!");
     }
-  }
+  };
 
-  function filteredTodos() {
-    if (filter === "all") {
-      return todos.filter((todo) => todo);
+  const filteredTodos = useMemo(() => {
+    switch (filter) {
+      case "all":
+        return todos;
+      case "active":
+        return todos.filter((todo) => !todo.isDone);
+      case "completed":
+        return todos.filter((todo) => todo.isDone);
+      default:
+        return todos;
     }
+  }, [todos, filter]);
 
-    if (filter === "active") {
-      return todos.filter((todo) => !todo.isDone);
-    }
-
-    if (filter === "completed") {
-      return todos.filter((todo) => todo.isDone);
-    }
-  }
-
-  function countActiveTodos() {
+  const countActiveTodos = () => {
     return todos.filter((todo) => !todo.isDone).length;
-  }
+  };
 
-  function deleteTodo(id) {
+  const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
-  }
+  };
 
-  function toggleIsDone(targetId) {
+  const toggleIsDone = (targetId) => {
     setTodos((prevState) =>
       prevState.map((todo) =>
         todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
       )
     );
-  }
+  };
 
-  function clearTodos() {
+  const clearTodos = () => {
     setTodos([]);
-  }
+  };
 
   return (
     <div className="App">
@@ -57,7 +56,7 @@ function App() {
       <div className="todo__wrapper">
         <Form onSubmit={addTodo} />
         <List
-          todos={filteredTodos()}
+          todos={filteredTodos}
           onDeleteTodo={deleteTodo}
           onToggleIsDone={toggleIsDone}
         />

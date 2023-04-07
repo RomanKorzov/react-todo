@@ -1,7 +1,7 @@
 import styles from "./List.module.css";
-import { ListItem } from "./ListItem/ListItem";
+import { ListItem } from "../ListItem/ListItem";
 
-export function List({ todos, onDeleteTodo, onToggleIsDone }) {
+export const List = ({ todos, onDeleteTodo, onToggleIsDone }) => {
   return (
     <ul className={styles.list}>
       {todos.map((todo) => (
@@ -14,4 +14,4 @@ export function List({ todos, onDeleteTodo, onToggleIsDone }) {
       ))}
     </ul>
   );
-}
+};

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
 
-export function Form({ onSubmit }) {
+export const Form = ({ onSubmit }) => {
   const [text, setText] = useState("");
 
-  function clearText() {
+  const clearText = () => {
     setText("");
-  }
+  };
 
   return (
     <form
@@ -26,4 +26,4 @@ export function Form({ onSubmit }) {
       />
     </form>
   );
-}
+};

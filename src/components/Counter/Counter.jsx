@@ -1,5 +1,5 @@
 import styles from "./Counter.module.css";
 
-export function Counter({ count }) {
+export const Counter = ({ count }) => {
   return <span className={styles.counter}>{count} items left</span>;
-}
+};

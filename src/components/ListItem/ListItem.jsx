@@ -1,14 +1,15 @@
 import styles from "./ListItem.module.css";
-import deleteIcon from "./../../../assets/images/delete.png";
+import deleteIcon from "./../../assets/images/delete.png";
 
-export function ListItem({ todo, onDeleteTodo, onToggleIsDone }) {
-  function styleText() {
+export const ListItem = ({ todo, onDeleteTodo, onToggleIsDone }) => {
+  const styleText = () => {
     if (todo.isDone) {
       return `${styles.text} ${styles.completed}`;
     } else {
       return `${styles.text}`;
     }
-  }
+  };
+
   return (
     <li className={`${styles.item}`}>
       <input
@@ -33,4 +34,4 @@ export function ListItem({ todo, onDeleteTodo, onToggleIsDone }) {
       </button>
     </li>
   );
-}
+};
