@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TextField } from "@consta/uikit/TextField";
+import { TodoContext } from "../../context";
 
-export const Form = ({ onSubmit }) => {
+export const Form = () => {
   const [text, setText] = useState("");
+  const { addTodo } = useContext(TodoContext);
 
   const clearText = () => {
     setText("");
@@ -12,7 +14,7 @@ export const Form = ({ onSubmit }) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onSubmit(text);
+        addTodo(text);
         clearText();
       }}
     >

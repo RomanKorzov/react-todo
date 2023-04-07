@@ -62,12 +62,13 @@ function App() {
         countActiveTodos,
         setFilter,
         clearTodos,
+        addTodo,
       }}
     >
       <div className="App">
         <Header text="todos" />
         <div className="todo__wrapper">
-          <Form onSubmit={addTodo} />
+          <Form />
           <List />
           <Footer />
         </div>
