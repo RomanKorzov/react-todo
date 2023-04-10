@@ -5,7 +5,6 @@ import { TodoContext } from "../../context";
 
 export const FilterButton = ({ label, filter, isActive }) => {
   const { setFilter } = useContext(TodoContext);
-
   return (
     <Button
       label={label}

@@ -17,6 +17,7 @@ export const Form = () => {
         addTodo(text);
         clearText();
       }}
+      data-test="form"
     >
       <TextField
         type="text"
@@ -24,6 +25,7 @@ export const Form = () => {
         value={text}
         onChange={({ value }) => setText(value)}
         width="full"
+        data-test="input"
       />
     </form>
   );

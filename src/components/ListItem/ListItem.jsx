@@ -10,12 +10,13 @@ export const ListItem = ({ todo }) => {
   const { deleteTodo, toggleIsDone } = useContext(TodoContext);
 
   return (
-    <li className={`${styles.item}`}>
+    <li className={`${styles.item}`} data-test="list-item">
       <Checkbox
         view="primary"
         checked={todo.isDone}
         className={styles.checkbox}
         onChange={() => toggleIsDone(todo.id)}
+        data-test="checkbox"
       />
       <Text className={styles.text}>{todo.text}</Text>
       <Button
@@ -25,6 +26,7 @@ export const ListItem = ({ todo }) => {
         className={styles.deleteButton}
         onlyIcon
         onClick={() => deleteTodo(todo.id)}
+        data-test="delete"
       ></Button>
     </li>
   );

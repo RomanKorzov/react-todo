@@ -6,7 +6,7 @@ import { TodoContext } from "../../context";
 export const Counter = () => {
   const { countActiveTodos } = useContext(TodoContext);
   return (
-    <div className={styles.counter}>
+    <div className={styles.counter} data-test="counter">
       <Text as="span">{countActiveTodos()} items left</Text>
     </div>
   );

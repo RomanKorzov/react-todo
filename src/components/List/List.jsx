@@ -7,7 +7,7 @@ export const List = () => {
   const { filteredTodos } = useContext(TodoContext);
 
   return (
-    <ul className={styles.list}>
+    <ul className={styles.list} data-test="list">
       {filteredTodos.map((todo) => (
         <ListItem key={todo.id} todo={todo} />
       ))}

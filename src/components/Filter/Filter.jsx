@@ -7,7 +7,7 @@ export const Filter = () => {
   const { filter } = useContext(TodoContext);
 
   return (
-    <div className={styles.filter}>
+    <div className={styles.filter} data-test="filter">
       <FilterButton label="All" filter="all" isActive={filter === "all"} />
       <FilterButton
         label="Active"

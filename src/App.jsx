@@ -10,11 +10,14 @@ function App() {
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState(
+    JSON.parse(localStorage.getItem("filter")) || "all"
+  );
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    localStorage.setItem("filter", JSON.stringify(filter));
+  }, [todos, filter]);
 
   const addTodo = (text) => {
     if (text.trim()) {
