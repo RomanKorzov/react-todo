@@ -1,6 +1,5 @@
-import React from "react";
+import { React, useMemo, useState, useEffect } from "react";
 import { TodoContext } from "./context";
-import { useMemo, useState } from "react";
 import { Header } from "./components/Header/Header";
 import { Form } from "./components/Form/Form";
 import { List } from "./components/List/List";
@@ -8,8 +7,14 @@ import { Footer } from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) || []
+  );
   const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (text) => {
     if (text.trim()) {
